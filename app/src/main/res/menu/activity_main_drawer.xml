@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+<!--    <item android:title="@string/nav_education">-->
+<!--        <menu>-->
+<!--            <item-->
+<!--                android:id="@+id/nav_eight_pass"-->
+<!--                android:icon="@drawable/ic_baseline_menu_book"-->
+<!--                android:title="JSC/JDC"-->
+<!--                tools:ignore="HardcodedText" />-->
+
+<!--            <item-->
+<!--                android:id="@+id/nav_ssc"-->
+<!--                android:icon="@drawable/ic_baseline_menu_book"-->
+<!--                android:title="SSC/DAKHIL"-->
+<!--                tools:ignore="HardcodedText" />-->
+
+<!--            <item-->
+<!--                android:id="@+id/nav_hsc"-->
+<!--                android:icon="@drawable/ic_baseline_menu_book"-->
+<!--                android:title="HSC/ALIM"-->
+<!--                tools:ignore="HardcodedText" />-->
+
+<!--            <item-->
+<!--                android:id="@+id/nav_msc"-->
+<!--                android:icon="@drawable/ic_baseline_menu_book"-->
+<!--                android:title="BSc/MSc"-->
+<!--                tools:ignore="HardcodedText" />-->
+<!--        </menu>-->
+<!--    </item>-->
+
+    <group android:checkableBehavior="single">
+
+        <item android:title="@string/company">
+            <menu>
+
+                <item
+                    android:id="@+id/nav_about"
+                    android:icon="@drawable/ic_baseline_about_info"
+                    android:title="আমাদের সম্পর্কে"
+                    tools:ignore="HardcodedText" />
+
+                <item
+                    android:id="@+id/nav_policy"
+                    android:icon="@drawable/ic_baseline_local_police"
+                    android:title="প্রাইভেসি পলিসি"
+                    tools:ignore="HardcodedText" />
+
+                <item
+                    android:id="@+id/nav_terms_con"
+                    android:icon="@drawable/ic_baseline_terms_con"
+                    android:title="টার্মস ও কন্ডিশন"
+                    tools:ignore="HardcodedText" />
+            </menu>
+        </item>
+
+        <item android:title="@string/others">
+            <menu>
+                <item
+                    android:id="@+id/nav_application_helper"
+                    android:icon="@drawable/ic_baseline_application_help"
+                    android:title="আবেদন হেল্প"
+                    tools:ignore="HardcodedText" />
+
+                <item
+                    android:id="@+id/nav_share"
+                    android:icon="@drawable/ic_baseline_share"
+                    android:title="বন্ধুদের সাথে শেয়ার করুন"
+                    tools:ignore="HardcodedText" />
+
+                <item
+                    android:id="@+id/nav_rating"
+                    android:icon="@drawable/ic_baseline_star_rate"
+                    android:title="@string/_star" />
+
+                <item
+                    android:id="@+id/nuv_comment_us"
+                    android:icon="@drawable/ic_baseline_comment"
+                    android:title="@string/menu_two" />
+
+            </menu>
+        </item>
+    </group>
+
+</menu>

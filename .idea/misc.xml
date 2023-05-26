@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BuildAttributionWarningsFilter">
+    <option name="noGCSettingWarning" value="true" />
+  </component>
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Android/AndroidWorld/ClintProject/GovernmentJobNews/app/src/main/res/layout/content_main_activity.xml" value="0.25" />
+        <entry key="..\:/Android/AndroidWorld/ClintProject/GovernmentJobNews/app/src/main/res/layout/lyt_custom_result.xml" value="0.18432971014492755" />
+        <entry key="..\:/Android/AndroidWorld/JAVA/ClintProject/GovernmentJobNews/app/src/main/res/layout/activity_auth.xml" value="0.25" />
+        <entry key="..\:/Android/AndroidWorld/JAVA/ClintProject/GovernmentJobNews/app/src/main/res/layout/activity_main.xml" value="0.16666666666666666" />
+        <entry key="..\:/Android/AndroidWorld/JAVA/ClintProject/GovernmentJobNews/app/src/main/res/layout/activity_web.xml" value="0.2884963768115942" />
+        <entry key="..\:/Android/AndroidWorld/JAVA/ClintProject/GovernmentJobNews/app/src/main/res/layout/content_main_activity.xml" value="0.2884963768115942" />
+        <entry key="..\:/Android/AndroidWorld/JAVA/ClintProject/GovernmentJobNews/app/src/main/res/layout/lyt_custom_result.xml" value="0.2884963768115942" />
+        <entry key="..\:/Android/AndroidWorld/JAVA/ClintProject/GovernmentJobNews/app/src/main/res/menu/reload_menu.xml" value="0.42916666666666664" />
+        <entry key="..\:/Android/JobApps/GovernmentJobNews/app/src/main/res/layout/activity_main.xml" value="0.184375" />
+        <entry key="..\:/Android/JobApps/GovernmentJobNews/app/src/main/res/layout/activity_no_internet.xml" value="0.184375" />
+        <entry key="..\:/Android/JobApps/GovernmentJobNews/app/src/main/res/layout/app_bar_no_internet.xml" value="0.184375" />
+        <entry key="..\:/Android/JobApps/GovernmentJobNews/app/src/main/res/layout/content_no_internet.xml" value="0.184375" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.252" />
+        <entry key="app/src/main/res/drawable-v24/splash.xml" value="0.1905" />
+        <entry key="app/src/main/res/drawable/card_shadow.xml" value="0.186" />
+        <entry key="app/src/main/res/drawable/custom_progress_dialog.xml" value="0.244" />
+        <entry key="app/src/main/res/drawable/ic_baseline_about_info.xml" value="0.1905" />
+        <entry key="app/src/main/res/drawable/ic_baseline_application_help.xml" value="0.241" />
+        <entry key="app/src/main/res/drawable/ic_baseline_back_button.xml" value="0.2485" />
+        <entry key="app/src/main/res/drawable/ic_baseline_calculate.xml" value="0.2355" />
+        <entry key="app/src/main/res/drawable/ic_baseline_close.xml" value="0.241" />
+        <entry key="app/src/main/res/drawable/ic_baseline_comment.xml" value="0.261" />
+        <entry key="app/src/main/res/drawable/ic_baseline_edit_calendar.xml" value="0.241" />
+        <entry key="app/src/main/res/drawable/ic_baseline_edit_note_24.xml" value="0.2355" />
+        <entry key="app/src/main/res/drawable/ic_baseline_error.xml" value="0.2485" />
+        <entry key="app/src/main/res/drawable/ic_baseline_favorite.xml" value="0.2485" />
+        <entry key="app/src/main/res/drawable/ic_baseline_favorite_add.xml" value="0.2485" />
+        <entry key="app/src/main/res/drawable/ic_baseline_local_police.xml" value="0.273" />
+        <entry key="app/src/main/res/drawable/ic_baseline_location_city.xml" value="0.2355" />
+        <entry key="app/src/main/res/drawable/ic_baseline_menu_book.xml" value="0.2485" />
+        <entry key="app/src/main/res/drawable/ic_baseline_my_job_list.xml" value="0.241" />
+        <entry key="app/src/main/res/drawable/ic_baseline_next.xml" value="0.2355" />
+        <entry key="app/src/main/res/drawable/ic_baseline_number.xml" value="0.241" />
+        <entry key="app/src/main/res/drawable/ic_baseline_previous.xml" value="0.2355" />
+        <entry key="app/src/main/res/drawable/ic_baseline_rate_review.xml" value="0.261" />
+        <entry key="app/src/main/res/drawable/ic_baseline_reload.xml" value="0.2485" />
+        <entry key="app/src/main/res/drawable/ic_baseline_remove_circle_outline.xml" value="0.241" />
+        <entry key="app/src/main/res/drawable/ic_baseline_save.xml" value="0.2485" />
+        <entry key="app/src/main/res/drawable/ic_baseline_search.xml" value="0.273" />
+        <entry key="app/src/main/res/drawable/ic_baseline_share.xml" value="0.261" />
+        <entry key="app/src/main/res/drawable/ic_baseline_terms_con.xml" value="0.273" />
+        <entry key="app/src/main/res/drawable/ic_baseline_transgender.xml" value="0.2355" />
+        <entry key="app/src/main/res/drawable/ic_baseline_wifi.xml" value="0.261" />
+        <entry key="app/src/main/res/drawable/ic_gjn_logo.xml" value="0.266" />
+        <entry key="app/src/main/res/drawable/ic_hide.xml" value="0.244" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.252" />
+        <entry key="app/src/main/res/drawable/ic_menu_camera.xml" value="0.261" />
+        <entry key="app/src/main/res/drawable/ic_menu_gallery.xml" value="0.261" />
+        <entry key="app/src/main/res/drawable/ic_menu_icon.xml" value="0.261" />
+        <entry key="app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.261" />
+        <entry key="app/src/main/res/drawable/ic_name.xml" value="0.2355" />
+        <entry key="app/src/main/res/drawable/ic_no_internet.xml" value="0.261" />
+        <entry key="app/src/main/res/drawable/ic_pass.xml" value="0.2355" />
+        <entry key="app/src/main/res/drawable/ic_phone.xml" value="0.244" />
+        <entry key="app/src/main/res/drawable/ic_show.xml" value="0.244" />
+        <entry key="app/src/main/res/drawable/ic_splash.xml" value="0.252" />
+        <entry key="app/src/main/res/drawable/login_curve.xml" value="0.244" />
+        <entry key="app/src/main/res/drawable/lyt_background.xml" value="0.255" />
+        <entry key="app/src/main/res/drawable/lyt_middle_back_two.xml" value="0.2425" />
+        <entry key="app/src/main/res/drawable/lyt_middle_background.xml" value="0.255" />
+        <entry key="app/src/main/res/drawable/side_nav_bar.xml" value="0.261" />
+        <entry key="app/src/main/res/layout/activity_auth.xml" value="0.3572916666666667" />
+        <entry key="app/src/main/res/layout/activity_blog.xml" value="0.3421875" />
+        <entry key="app/src/main/res/layout/activity_blog_details.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_calculate.xml" value="0.3572916666666667" />
+        <entry key="app/src/main/res/layout/activity_cgpa.xml" value="0.3421875" />
+        <entry key="app/src/main/res/layout/activity_company_details.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_favorite_job.xml" value="0.3572916666666667" />
+        <entry key="app/src/main/res/layout/activity_job_details.xml" value="0.3572916666666667" />
+        <entry key="app/src/main/res/layout/activity_job_search.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_job_short_list.xml" value="0.3572916666666667" />
+        <entry key="app/src/main/res/layout/activity_jobs.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_jobs_photos.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_news.xml" value="0.3421875" />
+        <entry key="app/src/main/res/layout/activity_no_internet.xml" value="0.3572916666666667" />
+        <entry key="app/src/main/res/layout/activity_notice.xml" value="0.3421875" />
+        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.2669826224328594" />
+        <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.18229166666666666" />
+        <entry key="app/src/main/res/layout/activity_web.xml" value="0.3572916666666667" />
+        <entry key="app/src/main/res/layout/app_bar_no_internet.xml" value="0.3572916666666667" />
+        <entry key="app/src/main/res/layout/content_main_activity.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/content_no_internet.xml" value="0.21920289855072464" />
+        <entry key="app/src/main/res/layout/fragment_all_bangla.xml" value="0.3421875" />
+        <entry key="app/src/main/res/layout/fragment_daily_bangla.xml" value="0.3421875" />
+        <entry key="app/src/main/res/layout/fragment_gallery.xml" value="0.3572916666666667" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.3572916666666667" />
+        <entry key="app/src/main/res/layout/fragment_online_bangla.xml" value="0.3421875" />
+        <entry key="app/src/main/res/layout/fragment_out_of_five.xml" value="0.3421875" />
+        <entry key="app/src/main/res/layout/fragment_out_of_four.xml" value="0.3421875" />
+        <entry key="app/src/main/res/layout/fragment_slideshow.xml" value="0.3572916666666667" />
+        <entry key="app/src/main/res/layout/fragment_t_v_channels.xml" value="0.3421875" />
+        <entry key="app/src/main/res/layout/fragment_tv_channels.xml" value="0.3421875" />
+        <entry key="app/src/main/res/layout/lyt_age_calculator.xml" value="0.3572916666666667" />
+        <entry key="app/src/main/res/layout/lyt_alert_net_connection.xml" value="0.17239583333333333" />
+        <entry key="app/src/main/res/layout/lyt_blog.xml" value="0.3421875" />
+        <entry key="app/src/main/res/layout/lyt_cgpa.xml" value="0.3411458333333333" />
+        <entry key="app/src/main/res/layout/lyt_check_apply.xml" value="0.35625" />
+        <entry key="app/src/main/res/layout/lyt_custom_result.xml" value="0.3421875" />
+        <entry key="app/src/main/res/layout/lyt_custom_video.xml" value="0.3421875" />
+        <entry key="app/src/main/res/layout/lyt_custome_result.xml" value="0.3421875" />
+        <entry key="app/src/main/res/layout/lyt_custome_video.xml" value="0.371875" />
+        <entry key="app/src/main/res/layout/lyt_custome_video_main.xml" value="0.3572916666666667" />
+        <entry key="app/src/main/res/layout/lyt_force_rating.xml" value="0.3421875" />
+        <entry key="app/src/main/res/layout/lyt_jobs.xml" value="0.3572916666666667" />
+        <entry key="app/src/main/res/layout/lyt_news.xml" value="0.3411458333333333" />
+        <entry key="app/src/main/res/layout/lyt_no_internet_conn.xml" value="0.3572916666666667" />
+        <entry key="app/src/main/res/layout/lyt_photos.xml" value="0.3572916666666667" />
+        <entry key="app/src/main/res/layout/lyt_related_jobs.xml" value="0.3572916666666667" />
+        <entry key="app/src/main/res/layout/lyt_tab_toolbar.xml" value="0.3421875" />
+        <entry key="app/src/main/res/layout/lyt_toolbar.xml" value="0.3572916666666667" />
+        <entry key="app/src/main/res/layout/lyt_update_custome.xml" value="0.3572916666666667" />
+        <entry key="app/src/main/res/layout/lyt_vpn.xml" value="0.3572916666666667" />
+        <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.3572916666666667" />
+        <entry key="app/src/main/res/layout/nav_header_no_internet.xml" value="0.3572916666666667" />
+        <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.3572916666666667" />
+        <entry key="app/src/main/res/menu/activity_no_internet.xml" value="0.33" />
+        <entry key="app/src/main/res/menu/jobs_menu.xml" value="0.3572916666666667" />
+        <entry key="app/src/main/res/menu/no_internet.xml" value="0.3572916666666667" />
+        <entry key="app/src/main/res/menu/photo_save_menu.xml" value="0.3572916666666667" />
+        <entry key="app/src/main/res/menu/profile_menu.xml" value="0.35625" />
+        <entry key="app/src/main/res/menu/reload_menu.xml" value="0.3572916666666667" />
+        <entry key="app/src/main/res/menu/search_menu.xml" value="0.3572916666666667" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_gjn_logo.xml" value="0.252" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_gjn_logo_round.xml" value="0.252" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.252" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.252" />
+      </map>
+    </option>
+  </component>
+  <component name="EntryPointsManager">
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="androidx.lifecycle.OnLifecycleEvent" />
+    </list>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

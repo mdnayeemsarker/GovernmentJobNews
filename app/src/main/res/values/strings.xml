@@ -1,0 +1,189 @@
+<resources>
+    <string name="app_name">JOBappBD</string>
+
+    // private static final String APP_WEB_URL = "https://governmentjobnews.com.bd";
+    // private static final String FREE_APP_WEB_URL =
+    "https://www.0.discoverapp.com/https/governmentjobnews.com.bd/";
+
+    <!--    Live ad unite id-->
+    <string name="bannerUnitId">ca-app-pub-9306148127704746/9263236601</string>
+    <string name="ADMOB_INTERSTITIAL_UNIT_ID">ca-app-pub-9306148127704746/1708218205</string>
+    <!--    <string name="SAVE_ADMOB_REWARDED_UNIT_ID">ca-app-pub-9306148127704746/7974379701</string>-->
+    <!--    <string name="VIDEO_ADMOB_REWARDED_UNIT_ID">ca-app-pub-9306148127704746/8592693275</string>-->
+
+    <!--    test ad unit id-->
+    <!--    <string name="bannerUnitId">ca-app-pub-3940256099942544/6300978111</string>-->
+    <!--    <string name="ADMOB_INTERSTITIAL_UNIT_ID">ca-app-pub-3940256099942544/1033173712</string>-->
+    <!--        <string name="SAVE_ADMOB_REWARDED_UNIT_ID">ca-app-pub-3940256099942544/5224354917</string>-->
+    <!--        <string name="VIDEO_ADMOB_REWARDED_UNIT_ID">ca-app-pub-3940256099942544/5224354917</string>-->
+
+    <string name="logout">লগ আউট</string>
+    <string name="develop_by">Develop By FOX SOFT</string>
+    <string name="app_copyright">© 2022 সরকারি চাকরির খবর ALL RIGHTS RESERVED</string>
+    <string name="app_description">Government Job News</string>
+    <string name="free_internet">বিনামূল্যে apps টি  ব্যবহার করতে উপরের  link টি click করুন।</string>
+    <string name="no_internet">উফফ, আপনার ডাটা কানেকশন অফ হয়ে গেছে, ডাটা কানেকশন দিন এবং পুনরায় চেষ্টা করুন।</string>
+    <string name="reload">Reload</string>
+    <string name="go_ahead">চালিয়ে যান</string>
+    <string name="title_activity_no_internet">NoInternetActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+    <string name="menu_one">আমাদের ফ্রি সার্ভিস</string>
+    <string name="_one">আমাদের সার্ভিস</string>
+    <string name="menu_two">মন্তব্য করুন</string>
+    <string name="_star">সার্ভিস ভালো লাগলে ৫স্টার দিয়েন</string>
+    <string name="menu">Menu</string>
+    <string name="can_not_connect">Can\'t Connect</string>
+    <string name="service_plan2">আমাদের ফ্রি সার্ভিসটি চালু করার জন্য প্রথম বার MB(Internet) থাকা আবশ্যক।বিশেষ দ্রষ্টব্যঃ ফ্রি ভার্সন চালানোর ক্ষেত্রে Wifi কার্যকর নয়।</string>
+    <string name="first_name">নামের প্রথম অংশ</string>
+    <string name="last_name">নামের শেষাংশ</string>
+    <string name="or">অথবা</string>
+    <string name="login">লগইন</string>
+    <string name="email_address">ইমেইল</string>
+    <string name="not_registered">রেজিস্টার</string>
+    <string name="password">পাসওয়ার্ড</string>
+    <string name="mobile">মোবাইল</string>
+
+    <string name="fcm_message">FCM Message</string>
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+
+    <!-- [START fcm_default_icon_string] -->
+    <string name="default_notification_channel_name" translatable="true">JOBappBD</string>
+    <string name="confirmPassword">পাসওয়ার্ড নিশ্চিত করুন</string>
+    <string name="jobs">Jobs</string>
+    <string name="all_jobs">সব চাকরি</string>
+    <string name="gov_job">সরকারি চাকরি</string>
+    <string name="private_job">প্রাইভেট চাকরি</string>
+    <string name="hot_job">হট জব</string>
+    <string name="exam_amp_result">পরীক্ষা ও ফলাফল</string>
+    <string name="last">শেষের দিকে</string>
+    <string name="alert">"সতর্ক বার্তা "</string>
+    <string name="message">"আপনার যদি ইন্টারনেট (MB) না থাকে তবে ফ্রি ভার্সন ব্যবহার করতে পারবেন। "</string>
+    <string name="board_result">শিক্ষা বোর্ড রেজাল্ট</string>
+    <string name="no">না</string>
+    <string name="profile">প্রোফাইল</string>
+    <string name="name">Name</string>
+    <string name="phone">Phone</string>
+    <string name="father_s_name">Father\'s Name</string>
+    <string name="date_of_birth">Date Of Birth</string>
+    <string name="gender">লিঙ্গ</string>
+    <string name="maritial_status">Maritial Status</string>
+    <string name="nationality">Nationality</string>
+    <string name="nid_card_num">National Id Card Number</string>
+    <string name="state">Division</string>
+    <string name="city">City</string>
+    <string name="country">Country</string>
+    <string name="address">Address</string>
+    <string name="search">Search</string>
+    <string name="edit">Edit</string>
+    <string name="job_title">পদের নাম</string>
+    <string name="job_address">"Address "</string>
+    <string name="salary">বেতন</string>
+    <string name="type">চাকরির ধারণ</string>
+    <string name="details">বিস্তারিত</string>
+    <string name="favorite">পছন্দের চাকরির তালিকা</string>
+    <string name="age_calculator">বয়স বের করার ক্যালকুলেটর</string>
+    <string name="company_name">কোম্পানি নাম</string>
+    <string name="description">Description</string>
+    <string name="apply">আবেদন করুন</string>
+
+    <string name="id">Id</string>
+    <string name="expiryDate">শেষ তারিখ</string>
+    <string name="shift">কাজের সময়</string>
+    <string name="education">শিক্ষা গত যোগ্যতা</string>
+    <string name="video">Help Video (Free Version)</string>
+    <string name="skills">Jobs Skills</string>
+    <string name="experience">অভিজ্ঞতা</string>
+    <string name="requiredJobsSkills">স্কিলস</string>
+    <string name="ceo">CEO</string>
+    <string name="website">Website</string>
+    <string name="location">Location</string>
+    <string name="office">Number Of Office</string>
+    <string name="established">Established In</string>
+    <string name="created">Created At</string>
+    <string name="updated">Updated At</string>
+    <string name="nav_education">শিক্ষা গত যোগ্যতা</string>
+    <string name="company">কোম্পানি</string>
+    <string name="others">অন্যান্য</string>
+    <string name="vpn_alert_message">"আপনি ভিপিএন (VPN) ব্যবহার করতেছেন, অনুগ্রহ করে ভিপিএন (VPN) বন্ধ করুন এবং পুনরায় চেষ্টা করুন, আমাদের সাথে থাকার জন্য ধন্যবাদ। "</string>
+    <string name="viewPhotos">View Photo</string>
+    <string name="job_num_of_post">পদের সংখ্যা</string>
+    <string name="startDate">আবেদনের শুরুর তারিখ</string>
+    <string name="net_alert">দুঃখিত, আপনার ইন্টারনেট কানেকশন চেক করুন…!এবং পুনরায় চেষ্টা করুন, আমাদের (JOBappBD) সাথে থাকার জন্য ধন্যবাদ।</string>
+    <string name="apply_alert_error">এই চাকরিতে আপনি আবেদন করেছেন নতুন করে আবেদন করতে পারবেন না।</string>
+    <string name="cancel">বাতিল</string>
+    <string name="all_news_paper">সব খবরের কাগজ</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="married">Married</string>
+    <string name="unmarried">Unmarried</string>
+    <string name="year">Year</string>
+    <string name="month">Month</string>
+    <string name="date">Date</string>
+    <string name="save">Save</string>
+    <string name="countryName">Bangladeshi</string>
+    <string name="job_age">আবেদন কারীর বয়স</string>
+    <string name="update_text">অনুগ্রহ করে পরবর্তী আপডেটের জন্য অপেক্ষা করুন</string>
+    <string name="updated_play">আপডেট চেক করুন</string>
+    <string name="first_page">First Page</string>
+    <string name="last_page">Last Page</string>
+    <string name="study">পড়ালেখা</string>
+    <string name="forget_password">পাসওয়ার্ড ভুলে গেছেন</string>
+    <string name="forget_email_check">ইমেইল চেক করুন</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="prothom_alo">প্রথম আলো / Prothom Alo</string>
+    <string name="BangladeshProtidin">বাংলাদেশ প্রতিদিন / Bangladesh Protidin</string>
+    <string name="Jugantor">যুগান্তর / Jugantor</string>
+    <string name="KalerKantho">কালের কণ্ঠ / Kaler Kantho</string>
+    <string name="DailyStar">ডেইলি স্টার / Daily Star</string>
+    <string name="Samakal">সমকাল / Samakal</string>
+    <string name="TheDailyIttefaq">দৈনিক ইত্তেফাক / The Daily Ittefaq</string>
+    <string name="DailyManabZamin">দৈনিক মানব জমিন / Daily Manab Zamin</string>
+    <string name="DailyNayadiganta">নয়া দিগন্ত / Daily Nayadiganta</string>
+    <string name="DainikAmadershomoy">দৈনিক আমাদের সময়় / Dainik Amadershomoy</string>
+    <string name="BDNews24">BD News 24</string>
+    <string name="BanglaNews24">Bangla News 24</string>
+    <string name="JagoNews24">Jago News 24</string>
+    <string name="Priyo">Priyo</string>
+    <string name="Bd24live">Bd24live</string>
+    <string name="Risingbd">Risingbd</string>
+    <string name="DailyBangladesh">Daily Bangladesh</string>
+    <string name="Gonews24">Gonews 24</string>
+    <string name="BanglaTribune">Bangla Tribune</string>
+    <string name="BanglaInsider">Bangla Insider</string>
+    <string name="BSSNews">BSS News</string>
+    <string name="Barta24">Barta24</string>
+    <string name="AmarDesh">Amar Desh</string>
+    <string name="DMPNews">DMP News</string>
+    <string name="SheershaSangbad">Sheersha Sangbad</string>
+    <string name="SangbadProtidin">Sangbad Protidin</string>
+    <string name="ChannelI">Channel I</string>
+    <string name="IndependentTv">Independent Tv</string>
+    <string name="SomoyNews">Somoy News</string>
+    <string name="NTVBD">NTV BD</string>
+    <string name="Channel24BD">Channel 24 BD</string>
+    <string name="RTV">RTV</string>
+    <string name="EkusheyTV">Ekushey TV</string>
+    <string name="ATNBangla">ATN Bangla</string>
+    <string name="JamunaTV">Jamuna TV</string>
+    <string name="SATV">"SATV "</string>
+    <string name="DeshTV">Desh TV</string>
+    <string name="MaasrangaTV">Maasranga TV</string>
+    <string name="BanglaVision">Bangla Vision</string>
+    <string name="EkattorTV">Ekattor TV</string>
+    <string name="ATNNews">ATN News</string>
+    <string name="MyTV">My TV</string>
+    <string name="BoishakhiTV">Boishakhi TV</string>
+    <string name="MohonaTV">Mohona TV</string>
+    <string name="GaziTVGTV">Gazi TV (GTV)</string>
+    <string name="AsianTV">Asian TV</string>
+
+</resources>

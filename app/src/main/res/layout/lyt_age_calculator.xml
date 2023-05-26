@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_gravity="center"
+    android:padding="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        app:cardCornerRadius="10dp"
+        android:backgroundTint="@color/primary_color"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:padding="10dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="UselessLeaf">
+
+            <ImageView
+                android:id="@+id/closeImageViewId"
+                android:background="@color/white"
+                android:layout_gravity="end"
+                android:src="@drawable/ic_baseline_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/app_name" />
+
+            <TextView
+                android:textSize="20sp"
+                android:gravity="center"
+                android:text="চাকরির বয়স বের করার ক্যালকুলেটর"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:justificationMode="inter_word"
+                android:text="চাকরির আবেদনের ক্ষেত্রে অনেক সময় বয়স বের করতে হয়। আমাদের এই JOB APP BD ক্যালকুলেটরের মাধ্যমে আপনি আপনার কাঙ্ক্ষিত বয়স বের করতে পারবেন।"
+                android:textColor="@color/white"
+                tools:ignore="HardcodedText,TextContrastCheck"
+                tools:targetApi="o" />
+
+            <LinearLayout
+                android:background="@color/white"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:ignore="UselessLeaf">
+
+                <TextView
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:text="বিজ্ঞপ্তিতে উল্লেখিত তারিখঃ"
+                    android:textColor="@color/black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:ignore="HardcodedText" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:ignore="DisableBaselineAlignment">
+
+                    <LinearLayout
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        tools:ignore="UselessParent">
+
+                        <TextView
+                            android:gravity="center"
+                            android:text="দিন - "
+                            android:textColor="@color/black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:ignore="HardcodedText" />
+
+                        <EditText
+                            android:id="@+id/bDateId"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="23"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            tools:ignore="HardcodedText,TextFields,TextContrastCheck,DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        tools:ignore="UselessParent">
+
+                        <TextView
+                            android:gravity="center"
+                            android:text="মাস - "
+                            android:textColor="@color/black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:ignore="HardcodedText" />
+
+                        <EditText
+                            android:id="@+id/bMonthId"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="3"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            tools:ignore="HardcodedText,TextFields,TouchTargetSizeCheck,TextContrastCheck" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        tools:ignore="UselessParent">
+
+                        <TextView
+                            android:gravity="center"
+                            android:text="বছর - "
+                            android:textColor="@color/black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:ignore="HardcodedText" />
+
+                        <EditText
+                            android:id="@+id/bYearId"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="2022"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            tools:ignore="HardcodedText,TextFields,TouchTargetSizeCheck,TextContrastCheck" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:textSize="20sp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="আপনার জন্ম তারিখঃ"
+                    android:textColor="@color/black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:ignore="HardcodedText" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:ignore="DisableBaselineAlignment">
+
+                    <LinearLayout
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        tools:ignore="UselessParent">
+
+                        <TextView
+                            android:gravity="center"
+                            android:text="দিন - "
+                            android:textColor="@color/black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:ignore="HardcodedText" />
+
+                        <EditText
+                            android:id="@+id/dDateId"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="15"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            tools:ignore="HardcodedText,TextFields,TextContrastCheck,DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        tools:ignore="UselessParent">
+
+                        <TextView
+                            android:gravity="center"
+                            android:text="মাস - "
+                            android:textColor="@color/black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:ignore="HardcodedText" />
+
+                        <EditText
+                            android:id="@+id/dMonthId"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="1"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            tools:ignore="HardcodedText,TextFields,TouchTargetSizeCheck,TextContrastCheck" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        tools:ignore="UselessParent">
+
+                        <TextView
+                            android:gravity="center"
+                            android:text="বছর - "
+                            android:textColor="@color/black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:ignore="HardcodedText" />
+
+                        <EditText
+                            android:id="@+id/dYearId"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="2001"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            tools:ignore="HardcodedText,TextFields,TouchTargetSizeCheck,TextContrastCheck" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/calculateAgeButtonId"
+                    android:layout_gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:text="বয়স বের করুন"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:paddingLeft="50dp"
+                    android:paddingRight="50dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/showAgeTextViewId"
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:text="বিজ্ঞপ্তিতে উল্লেখিত তারিখে আপনার বয়সঃ "
+                    android:textColor="@color/black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:ignore="HardcodedText" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

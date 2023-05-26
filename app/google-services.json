@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "210933034437",
+    "project_id": "government-job-news-608d1",
+    "storage_bucket": "government-job-news-608d1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:210933034437:android:0bfbcc9a8f89af932f2fac",
+        "android_client_info": {
+          "package_name": "com.jobapps.governmentjobnews"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "210933034437-itdo0jstrdul7eq9mfou2ntmdfag3cmm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNI-Z2C0NTZvqpWfcWQwVAm1LLYVcibZo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "210933034437-itdo0jstrdul7eq9mfou2ntmdfag3cmm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

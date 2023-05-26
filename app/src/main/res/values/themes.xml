@@ -1,0 +1,33 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+<!--    <style name="Theme.GovernmentJobNews" parent="Theme.AppCompat.Light.NoActionBar">-->
+<!--        &lt;!&ndash; Primary brand color. &ndash;&gt;-->
+<!--        <item name="colorPrimary">@color/primary_color</item>-->
+<!--        <item name="colorPrimaryDark">@color/primary_dark_color</item>-->
+<!--        <item name="colorAccent">@color/purple_700</item>-->
+<!--        &lt;!&ndash; Customize your theme here. &ndash;&gt;-->
+
+<!--        <item name="android:statusBarColor">@color/primary_color</item>-->
+<!--    </style>-->
+
+<!--    <style name="SplashTheme" parent="AppTheme">-->
+<!--        <item name="android:windowBackground">@drawable/splash</item>-->
+<!--        <item name="android:statusBarColor">@color/primary_color</item>-->
+<!--    </style>-->
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/primary_color</item>
+        <item name="colorPrimaryDark">@color/primary_color</item>
+        <item name="colorAccent">@color/primary_color</item>
+        <item name="android:statusBarColor">@color/primary_color</item>
+    </style>
+
+<!--    <style name="Theme.GovernmentJobNews.NoActionBar">-->
+<!--        <item name="windowActionBar">true</item>-->
+<!--        <item name="windowNoTitle">true</item>-->
+<!--    </style>-->
+
+<!--    <style name="Theme.GovernmentJobNews.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />-->
+
+<!--    <style name="Theme.GovernmentJobNews.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />-->
+</resources>
