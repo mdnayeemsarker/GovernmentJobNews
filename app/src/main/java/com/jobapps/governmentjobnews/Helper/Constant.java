@@ -13,10 +13,9 @@ public class Constant {
     public static final String BASE_URL_SD_S = HTTPS + DOMAIN;
 
     //**************API***************
-    public static final String CONTACT_US_URL = BASE_URL_SD_S + "pages/contact-us";
-    public static final String ABOUT_US_URL = BASE_URL_SD_S + "pages/about-us";
-    public static final String PRIVACY_US_URL = BASE_URL_SD_S + "pages/privacy";
-    public static final String TERMS_CON_URL = BASE_URL_SD_S + "pages/terms-condition";
+    public static final String ABOUT_US_URL = "https://jobappbd.blogspot.com/2022/05/blog-post.html";
+    public static final String PRIVACY_US_URL = "https://jobappbd.blogspot.com/2022/04/blog-post.html";
+    public static final String TERMS_CON_URL = "https://jobappbd.blogspot.com/2022/04/job-app-bd.html";
     public static final String APPLICATION_HELPER_URL = "http://forms.mygov.bd/site/view/category_content/%E0%A6%9A%E0%A6%BE%E0%A6%95%E0%A7%81%E0%A6%B0%E0%A6%BF%20%E0%A6%B8%E0%A6%82%E0%A6%95%E0%A7%8D%E0%A6%B0%E0%A6%BE%E0%A6%A8%E0%A7%8D%E0%A6%A4";
 
     public static final String NEWSPAPER_URL = BASE_URL_SD_S + "public/news_paper/";

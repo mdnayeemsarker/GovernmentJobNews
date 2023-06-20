@@ -10,8 +10,8 @@ android {
         minSdk 23
         //noinspection OldTargetApi
         targetSdk 33
-        versionCode 19
-        versionName "abmn-6.0.0"
+        versionCode 20
+        versionName "abmn-6.5.5"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }

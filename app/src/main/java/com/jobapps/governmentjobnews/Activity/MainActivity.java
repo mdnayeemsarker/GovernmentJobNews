@@ -87,23 +87,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (session.getData(Constant.IS_RATING).equals("2")) {
             ApiConfig.forceRating(activity, session);
         }
-        findViewById(R.id.videoClassCardViewId).setOnClickListener(v -> {
-            if (session.getBoolean(Constant.IS_LOGIN)) {
-                ApiConfig.transferWebActivity(activity, "result", "https://hjhjkmnjkjlikjhjbn.blogspot.com");
-            } else {
-                checkLogin("video", "video");
-            }
-        });
-        findViewById(R.id.liveVideoCardViewId).setOnClickListener(v -> {
-            if (session.getBoolean(Constant.IS_LOGIN)) {
-                ApiConfig.transferWebActivity(activity, "result", "https://hjhjkmnjkjlikjhjbn.blogspot.com/p/live-class.html");
-            } else {
-                checkLogin("live", "live");
-            }
-        });
+
         findViewById(R.id.newsCardViewId).setOnClickListener(v -> ApiConfig.transferActivity(activity, "news", ""));
         findViewById(R.id.cGpaCalculatorCardViewId).setOnClickListener(v -> ApiConfig.transferActivity(activity, "cgpa", ""));
         findViewById(R.id.courseCV).setOnClickListener(v -> startActivity(new Intent(activity, CourseActivity.class)));
+        findViewById(R.id.companyRegCV).setOnClickListener(v -> ApiConfig.openAnotherApp(activity, "web", "https://www.governmentjobnews.com.bd/login"));
 
         ApiConfig.autoNetCheck(activity);
 
@@ -129,8 +117,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Log.d("company", e.getMessage());
             }
         }, Request.Method.GET, activity, Constant.API_PATH + "setting", new HashMap<>(), false);
-
-
     }
 
     private void makePopUp(String img_url) {
@@ -151,24 +137,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             dialog.dismiss();
             startActivity(new Intent(activity, CourseActivity.class));
         });
-    }
-
-    private void checkLogin(String date, String send) {
-        ApiConfig.checkConnection(activity);
-        if (session.getBoolean(Constant.IS_LOGIN)) {
-            ApiConfig.transferActivity(activity, date, send);
-        } else {
-            ApiConfig.transferActivity(activity, "login", send);
-        }
-    }
-
-
-    private void gotoDetails(String send) {
-        if (ApiConfig.isConnected(activity)) {
-            ApiConfig.transferActivity(activity, "job_list", send);
-        } else {
-            ApiConfig.isConnectedAlert(activity);
-        }
     }
 
     @SuppressLint("NonConstantResourceId")

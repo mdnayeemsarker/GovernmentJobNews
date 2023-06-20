@@ -75,11 +75,6 @@
                     android:icon="@drawable/ic_baseline_star_rate"
                     android:title="@string/_star" />
 
-                <item
-                    android:id="@+id/nuv_comment_us"
-                    android:icon="@drawable/ic_baseline_comment"
-                    android:title="@string/menu_two" />
-
             </menu>
         </item>
     </group>

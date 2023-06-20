@@ -311,9 +311,6 @@ public class ApiConfig extends Application {
         checkConnection(activity);
         Intent myIntent = new Intent(activity, WebActivity.class);
         switch (data) {
-            case "comment":
-                myIntent.putExtra(Constant.ABMN, Constant.CONTACT_US_URL);
-                break;
             case "privacy":
                 myIntent.putExtra(Constant.ABMN, Constant.PRIVACY_US_URL);
                 break;
@@ -583,10 +580,6 @@ public class ApiConfig extends Application {
                 break;
             case R.id.nav_share:
                 ApiConfig.shareApp(activity);
-                drawer.closeDrawer(GravityCompat.START);
-                break;
-            case R.id.nuv_comment_us:
-                ApiConfig.transferWebActivity(activity, "comment", "");
                 drawer.closeDrawer(GravityCompat.START);
                 break;
             case R.id.nav_about:

@@ -112,7 +112,7 @@ public class PrivateDetailsActivity extends AppCompatActivity {
         });
 
         jobsTitleTV.setText("পদের নাম: " + session.getData("name"));
-        jobsCompanyNameTV.setText("Company: "+session.getData("company_name"));
+        jobsCompanyNameTV.setText(session.getData("company_name"));
         vacancy.setText(session.getData("vacancy"));
         salary.setText(session.getData("salary"));
         context.setText(session.getData("context"));
