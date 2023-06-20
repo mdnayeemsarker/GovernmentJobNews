@@ -2,6 +2,7 @@ package com.jobapps.governmentjobnews.Adapter;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.jobapps.governmentjobnews.Activity.JobDetailsActivity;
 import com.jobapps.governmentjobnews.Helper.ApiConfig;
 import com.jobapps.governmentjobnews.Helper.Constant;
 import com.jobapps.governmentjobnews.Helper.Session;
@@ -33,14 +35,11 @@ public class JobsAdapter extends RecyclerView.Adapter<JobsAdapter.ViewHolder> {
 
     final Activity activity;
     private final ArrayList<JobsModel> jobsModelArrayList;
-    private final Session session;
-    private final String favorite;
 
-    public JobsAdapter(Activity activity, ArrayList<JobsModel> jobsModelArrayList, String favorite) {
+
+    public JobsAdapter(Activity activity, ArrayList<JobsModel> jobsModelArrayList) {
         this.activity = activity;
         this.jobsModelArrayList = jobsModelArrayList;
-        session = new Session(activity);
-        this.favorite = favorite;
     }
 
     @NonNull
@@ -53,12 +52,14 @@ public class JobsAdapter extends RecyclerView.Adapter<JobsAdapter.ViewHolder> {
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.jobsTitle.setText("পদের নাম: " + jobsModelArrayList.get(position).getTitle());
+        JobsModel model = jobsModelArrayList.get(position);
+        holder.jobsTitle.setText("পদের নাম: " + model.getName());
+        holder.companyName.setText(model.getCompany_name());
 
         @SuppressLint("SimpleDateFormat")
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
         try {
-            Date date = formatter.parse(jobsModelArrayList.get(position).getExpiry_date());
+            Date date = formatter.parse(model.getEnd_date());
             @SuppressLint("SimpleDateFormat")
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
             assert date != null;
@@ -70,64 +71,15 @@ public class JobsAdapter extends RecyclerView.Adapter<JobsAdapter.ViewHolder> {
             Log.d("time", e.getMessage());
         }
 
-        if (favorite.equals("addFavorite") || favorite.equals("applied")) {
-            holder.jobsFavorite.setImageResource(R.drawable.ic_baseline_favorite_add);
-        } else if (favorite.equals("removeFavorite")) {
-            holder.jobsFavorite.setImageResource(R.drawable.ic_baseline_remove_circle_outline);
-        }
-
-        if (jobsModelArrayList.get(position).getCompany_name().isEmpty()) {
-            holder.companyName.setVisibility(View.GONE);
-        } else {
-            holder.companyName.setVisibility(View.VISIBLE);
-            holder.companyName.setText(jobsModelArrayList.get(position).getCompany_name());
-        }
-
-        holder.jobsFavorite.setOnClickListener(view -> {
-
-            if (ApiConfig.isConnected(activity)) {
-                if (session.getBoolean(Constant.IS_LOGIN)) {
-                    String url = null;
-                    if (favorite.equals("addFavorite")) {
-                        url = Constant.FAVORITE_ADD_URL + jobsModelArrayList.get(position).getSlug();
-                    } else if (favorite.equals("removeFavorite")) {
-                        url = Constant.FAVORITE_REMOVE_URL + jobsModelArrayList.get(position).getSlug();
-                    }
-                    Map<String, String> params = new HashMap<>();
-                    params.put(Constant.AUTHORIZATION, Constant.BEARER + session.getData(Constant.TOKEN));
-                    ApiConfig.RequestToVolley((result, response) -> {
-                        if (result) {
-                            try {
-                                JSONObject jsonObject = new JSONObject(response);
-                                if (jsonObject.getString(Constant.STATUS).equals(Constant.SUCCESS)) {
-                                    Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
-                                }
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                                Log.d("eFavorite", e.getMessage());
-                            }
-                        }
-                        Log.d("rFavorite", response);
-                    }, activity, url, params, true);
-
-                } else {
-                    ApiConfig.transferActivity(activity, "details", jobsModelArrayList.get(position).getSlug());
-                }
-            } else {
-                ApiConfig.isConnectedAlert(activity);
-            }
-
-        });
-        holder.rootJobsCardView.setOnClickListener(view -> {
-            if (ApiConfig.isConnected(activity)) {
-                if (session.getBoolean(Constant.IS_LOGIN)) {
-                    ApiConfig.transferActivity(activity, "job_details", jobsModelArrayList.get(position).getSlug());
-                } else {
-                    ApiConfig.transferActivity(activity, "details", jobsModelArrayList.get(position).getSlug());
-                }
-            } else {
-                ApiConfig.isConnectedAlert(activity);
-            }
+        holder.rootJobsCardView.setOnClickListener(v -> {
+            Session session = new Session(activity);
+            session.setData("name", model.getName());
+            session.setData("companyName", model.getCompany_name());
+            session.setData("startDate", model.getStart_date());
+            session.setData("endDate", model.getEnd_date());
+            session.setData("description", model.getDescription());
+            session.setData("applyUrl", model.getApply_url());
+            activity.startActivity(new Intent(activity, JobDetailsActivity.class));
         });
     }
 
@@ -138,7 +90,6 @@ public class JobsAdapter extends RecyclerView.Adapter<JobsAdapter.ViewHolder> {
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        private final ImageView jobsFavorite;
         private final TextView jobsTitle;
         private final TextView jobsExpiryDate;
         private final TextView companyName;
@@ -147,7 +98,6 @@ public class JobsAdapter extends RecyclerView.Adapter<JobsAdapter.ViewHolder> {
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            jobsFavorite = itemView.findViewById(R.id.jobsFavoriteId);
             jobsTitle = itemView.findViewById(R.id.jobsTitleId);
             jobsExpiryDate = itemView.findViewById(R.id.jobsExpiryDateId);
             companyName = itemView.findViewById(R.id.companyNameId);

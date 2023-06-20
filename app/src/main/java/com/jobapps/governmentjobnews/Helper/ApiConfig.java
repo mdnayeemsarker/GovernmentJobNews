@@ -32,6 +32,7 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.ParseError;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.ServerError;
 import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
@@ -46,19 +47,12 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.RequestConfiguration;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
-import com.google.android.gms.ads.rewarded.RewardedAd;
-import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
-import com.jobapps.governmentjobnews.Activity.AuthActivity;
-import com.jobapps.governmentjobnews.Activity.BlogActivity;
 import com.jobapps.governmentjobnews.Activity.CgpaActivity;
-import com.jobapps.governmentjobnews.Activity.FavoriteJobActivity;
 import com.jobapps.governmentjobnews.Activity.JobDetailsActivity;
 import com.jobapps.governmentjobnews.Activity.JobShortListActivity;
 import com.jobapps.governmentjobnews.Activity.JobsActivity;
-import com.jobapps.governmentjobnews.Activity.JobsPhotosActivity;
 import com.jobapps.governmentjobnews.Activity.MainActivity;
 import com.jobapps.governmentjobnews.Activity.NewsActivity;
-import com.jobapps.governmentjobnews.Activity.NoticeActivity;
 import com.jobapps.governmentjobnews.Activity.WebActivity;
 import com.jobapps.governmentjobnews.R;
 
@@ -68,6 +62,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
 
@@ -141,20 +136,9 @@ public class ApiConfig extends Application {
         //this method doesn't work below API 21
         boolean vpnInUse = false;
         ConnectivityManager connectivityManager = (ConnectivityManager) activity.getSystemService(CONNECTIVITY_SERVICE);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            Network activeNetwork = connectivityManager.getActiveNetwork();
-            NetworkCapabilities caps = connectivityManager.getNetworkCapabilities(activeNetwork);
-            return caps.hasTransport(NetworkCapabilities.TRANSPORT_VPN);
-        }
-        Network[] networks = connectivityManager.getAllNetworks();
-        for (Network network : networks) {
-            NetworkCapabilities caps = connectivityManager.getNetworkCapabilities(network);
-            if (caps.hasTransport(NetworkCapabilities.TRANSPORT_VPN)) {
-                vpnInUse = true;
-                break;
-            }
-        }
-        return vpnInUse;
+        Network activeNetwork = connectivityManager.getActiveNetwork();
+        NetworkCapabilities caps = connectivityManager.getNetworkCapabilities(activeNetwork);
+        return caps.hasTransport(NetworkCapabilities.TRANSPORT_VPN);
     }
 
     public static void vpnAlert(Activity activity) {
@@ -180,7 +164,7 @@ public class ApiConfig extends Application {
         }
     }
 
-    public static void RequestToVolley(final VolleyCallback callback, final Activity activity, final String url, final Map<String, String> params, final boolean isProgress) {
+    public static void RequestToVolley(final VolleyCallback callback, int method, final Activity activity, final String url, final Map<String, String> params, final boolean isProgress) {
 
         if (ProgressDisplay.mProgressBar != null) {
             ProgressDisplay.mProgressBar.setVisibility(View.GONE);
@@ -190,7 +174,7 @@ public class ApiConfig extends Application {
 
         if (isProgress)
             progressDisplay.showProgress();
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, response -> {
+        StringRequest stringRequest = new StringRequest(method, url, response -> {
             if (ApiConfig.isConnected(activity))
                 callback.onSuccess(true, response);
             if (isProgress)
@@ -211,8 +195,6 @@ public class ApiConfig extends Application {
             @NonNull
             @Override
             protected Map<String, String> getParams() {
-                params.put(Constant.API_KEY, Constant.API_KEY_VAL);
-                params.put(Constant.API_SECRET, Constant.API_SECRET_VAL);
                 return params;
             }
 
@@ -224,6 +206,52 @@ public class ApiConfig extends Application {
         };
         stringRequest.setRetryPolicy(new DefaultRetryPolicy(0, 0, 0));
         Volley.newRequestQueue(activity).add(stringRequest);
+    }
+
+    public static void RequestToVolley(final VolleyCallback callback, Activity activity, String url, Map<String, String> params, Map<String, String> fileParams, boolean isProgress) {
+        if (ProgressDisplay.mProgressBar != null) {
+            ProgressDisplay.mProgressBar.setVisibility(View.GONE);
+        }
+        final ProgressDisplay progressDisplay = new ProgressDisplay(activity);
+        progressDisplay.hideProgress();
+        if (isProgress)
+            progressDisplay.showProgress();
+        RequestQueue queue = Volley.newRequestQueue(activity);
+
+        VolleyMultiPartRequest multipartRequest = new VolleyMultiPartRequest(url,
+                response -> {
+                    callback.onSuccess(true, response);
+                    if (isProgress)
+                        progressDisplay.hideProgress();
+                },
+                error -> {
+                    callback.onSuccess(false, error.getMessage());
+                    if (isProgress)
+                        progressDisplay.hideProgress();
+                }) {
+
+            @Override
+            public Map<String, String> getHeaders() {
+                Map<String, String> params1 = new HashMap<>();
+                params1.put(Constant.ACCEPT, Constant.APPLICATIONJSON);
+                Log.d("apiConfig", "getHeaders" + params1 + ", " + url);
+                return params1;
+            }
+
+            @Override
+            public Map<String, String> getDefaultParams() {
+                return params;
+            }
+
+            @Override
+            public Map<String, String> getFileParams() {
+                Log.d("srParams", params.toString() + ", " + url + ", " + getHeaders() + ", " + fileParams.toString());
+                return fileParams;
+            }
+
+        };
+        multipartRequest.setRetryPolicy(new DefaultRetryPolicy(0, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        queue.add(multipartRequest);
     }
 
     public static String VolleyErrorMessage(VolleyError error) {
@@ -252,12 +280,6 @@ public class ApiConfig extends Application {
         checkConnection(activity);
         Intent intent;
         switch (data) {
-            case "exam_result":
-                intent = new Intent(activity, NoticeActivity.class);
-                break;
-            case "study":
-                intent = new Intent(activity, BlogActivity.class);
-                break;
             case "back":
                 intent = new Intent(activity, MainActivity.class);
                 break;
@@ -278,22 +300,6 @@ public class ApiConfig extends Application {
                 intent = new Intent(activity, JobDetailsActivity.class);
                 intent.putExtra(Constant.ABMN, send);
                 loadInterstitial(activity);
-                break;
-            case "favorite_list":
-                intent = new Intent(activity, FavoriteJobActivity.class);
-                intent.putExtra(Constant.ABMN, send);
-                break;
-            case "photo":
-            case "blog":
-            case "notice":
-                intent = new Intent(activity, JobsPhotosActivity.class);
-                intent.putExtra(Constant.ABMN, send);
-                intent.putExtra(Constant.ABMN_TYPE, data);
-                break;
-            case "details":
-            case "login":
-                intent = new Intent(activity, AuthActivity.class);
-                intent.putExtra(Constant.ABMN, send);
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + data);
@@ -350,25 +356,6 @@ public class ApiConfig extends Application {
             activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + activity.getPackageName() + "&hl=en")));
         }
     }
-
-//    public static void nextUpdate(Activity activity) {
-//        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-//        final View customLayout = activity.getLayoutInflater().inflate(R.layout.lyt_custom_update, null);
-//        builder.setView(customLayout);
-//        AlertDialog dialog = builder.create();
-//        dialog.setCancelable(false);
-//        dialog.show();
-//        customLayout.findViewById(R.id.customUpdateCheckerBtnId).setOnClickListener(view -> {
-//            dialog.dismiss();
-//            rateMe(activity);
-//        });
-//        customLayout.findViewById(R.id.closeImageViewId).setOnClickListener(view -> {
-//            dialog.dismiss();
-//            if (isConnected(activity)) {
-//                loadRewardedVideoAds(activity);
-//            }
-//        });
-//    }
 
     public static void customResult(Activity activity) {
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
@@ -779,16 +766,6 @@ public class ApiConfig extends Application {
         }
     }
 
-    public static boolean isValidEmailId(String email) {
-
-        return Pattern.compile("^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]|[\\w-]{2,}))@"
-                + "((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
-                + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\."
-                + "([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
-                + "[0-9]{1,2}|25[0-5]|2[0-4][0-9]))|"
-                + "([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$").matcher(email).matches();
-    }
-
     public static boolean checkURL(CharSequence input) {
         Pattern URL_PATTERN = Patterns.WEB_URL;
         boolean isURL = URL_PATTERN.matcher(input).matches();
@@ -804,6 +781,51 @@ public class ApiConfig extends Application {
             }
         }
         return isURL;
+    }
+
+    public static boolean isEmail(String email) {
+        return Pattern.compile("^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]|[\\w-]{2,}))@"
+                + "((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\."
+                + "([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                + "[0-9]{1,2}|25[0-5]|2[0-4][0-9]))|"
+                + "([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$").matcher(email).matches();
+    }
+
+    public static boolean isURL(CharSequence input) {
+        Pattern URL_PATTERN = Patterns.WEB_URL;
+        boolean isURL = URL_PATTERN.matcher(input).matches();
+        if (!isURL) {
+            String urlString = input + "";
+            if (URLUtil.isNetworkUrl(urlString)) {
+                try {
+                    new URL(urlString);
+                    isURL = true;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return isURL;
+    }
+
+    public static void openAnotherApp(Activity activity, String type, String data) {
+        Intent intent = null;
+        switch (type) {
+            case "phone":
+                intent = new Intent(Intent.ACTION_CALL);
+                intent.setData(Uri.parse("tel:" + data));
+                break;
+            case "email":
+                intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:" + data));
+                intent.putExtra(Intent.EXTRA_SUBJECT, "Job Apply");
+                intent.putExtra(Intent.EXTRA_TEXT, "India Job App");
+                break;
+            case "web":
+                intent = new Intent(Intent.ACTION_VIEW, Uri.parse(data));
+                break;
+        }
+        activity.startActivity(intent);
     }
 
 }

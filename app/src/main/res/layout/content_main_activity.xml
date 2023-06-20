@@ -39,36 +39,6 @@
                     android:orientation="horizontal">
 
                     <LinearLayout
-                        android:id="@+id/allJobCardViewId"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="3dp"
-                        android:layout_marginEnd="3dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/lyt_middle_back_two"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        tools:ignore="UseCompoundDrawables">
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:contentDescription="@string/app_name"
-                            android:src="@drawable/app_logo"
-                            tools:ignore="ImageContrastCheck,TooDeepLayout" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="@string/all_jobs"
-                            android:textColor="@color/txt_color"
-                            android:textSize="16sp"
-                            tools:ignore="TextContrastCheck" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
                         android:id="@+id/govJobCardViewId"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
@@ -97,15 +67,6 @@
 
                     </LinearLayout>
 
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:layout_marginTop="8dp"
-                    android:baselineAligned="false"
-                    android:orientation="horizontal">
-
                     <LinearLayout
                         android:id="@+id/privateJobCardViewId"
                         android:layout_width="0dp"
@@ -113,7 +74,7 @@
                         android:layout_marginStart="3dp"
                         android:layout_marginEnd="3dp"
                         android:layout_weight="1"
-                        android:background="@drawable/lyt_middle_back_one"
+                        android:background="@drawable/lyt_middle_back_two"
                         android:gravity="center"
                         android:orientation="vertical"
                         tools:ignore="UseCompoundDrawables">
@@ -133,6 +94,16 @@
                             android:textSize="16sp" />
 
                     </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
 
                     <LinearLayout
                         android:id="@+id/hotJobCardViewId"
@@ -162,44 +133,6 @@
 
                     </LinearLayout>
 
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:baselineAligned="false"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:id="@+id/examResultCardViewId"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="3dp"
-                        android:layout_marginEnd="3dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/lyt_middle_back_two"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        tools:ignore="UseCompoundDrawables">
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:contentDescription="@string/app_name"
-                            android:src="@drawable/exam" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="@string/exam_amp_result"
-                            android:textColor="@color/txt_color"
-                            android:textSize="16sp" />
-
-                    </LinearLayout>
-
                     <LinearLayout
                         android:id="@+id/lastLinearLayoutId"
                         android:layout_width="0dp"
@@ -207,7 +140,7 @@
                         android:layout_marginStart="3dp"
                         android:layout_marginEnd="3dp"
                         android:layout_weight="1"
-                        android:background="@drawable/lyt_middle_back_two"
+                        android:background="@drawable/lyt_middle_back_one"
                         android:gravity="center"
                         android:orientation="vertical"
                         tools:ignore="UseCompoundDrawables">
@@ -225,80 +158,6 @@
                             android:layout_gravity="center"
                             android:text="@string/last"
                             android:textColor="@color/txt_color"
-                            android:textSize="16sp" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:baselineAligned="false"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:id="@+id/studyLinearLayoutId"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="3dp"
-                        android:layout_marginEnd="3dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/lyt_middle_back_one"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        tools:ignore="UseCompoundDrawables">
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_margin="5dp"
-                            android:contentDescription="@string/app_name"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/ic_baseline_auto_stories"
-                            tools:ignore="ImageContrastCheck" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:paddingBottom="5dp"
-                            android:text="@string/study"
-                            android:textColor="@color/txt_color"
-                            android:textSize="16sp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/resultLinearLayoutId"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="3dp"
-                        android:layout_marginEnd="3dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/lyt_middle_back_one"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        tools:ignore="UseCompoundDrawables">
-
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="50dp"
-                            android:layout_gravity="center"
-                            android:layout_margin="5dp"
-                            android:contentDescription="@string/app_name"
-                            android:padding="5dp"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/result" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:paddingBottom="5dp"
-                            android:text="@string/board_result"
-                            android:textColor="@color/black"
                             android:textSize="16sp" />
 
                     </LinearLayout>
@@ -414,10 +273,10 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/favoriteCardViewId"
+                    android:id="@+id/courseCV"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="5dp"
                     android:layout_weight="1"
                     app:cardCornerRadius="20dp">
 
@@ -433,15 +292,16 @@
                             android:layout_gravity="center"
                             android:contentDescription="@string/app_name"
                             android:padding="5dp"
-                            android:src="@drawable/ic_baseline_favorite" />
+                            android:src="@drawable/ic_books" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:paddingBottom="5dp"
-                            android:text="@string/favorite"
-                            android:textColor="@color/black" />
+                            android:text="কোর্স রেজিস্ট্রেশন"
+                            android:textColor="@color/black"
+                            tools:ignore="HardcodedText" />
 
                     </LinearLayout>
 
@@ -526,27 +386,6 @@
                 </androidx.cardview.widget.CardView>
 
             </LinearLayout>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/logoutCardViewId"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:visibility="gone"
-                app:cardCornerRadius="20dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:text="@string/logout"
-                    android:textColor="@color/black"
-                    app:drawableLeftCompat="@drawable/ic_baseline_logout" />
-
-            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
 

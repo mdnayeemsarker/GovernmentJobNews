@@ -3,25 +3,23 @@ package com.jobapps.governmentjobnews.Model;
 public class JobsModel {
 
     private final String id;
-    private final String title;
+    private final String name;
     private final String company_name;
+    private final String start_date;
+    private final String end_date;
+    private final String apply_url;
     private final String description;
-    private final String career_level;
-    private final String expiry_date;
-    private final String is_active;
-    private final String slug;
     private final String created_at;
     private final String updated_at;
 
-    public JobsModel(String id, String title, String company_name, String description, String career_level, String expiry_date, String is_active, String slug, String created_at, String updated_at) {
+    public JobsModel(String id, String name, String company_name, String start_date, String end_date, String apply_url, String description, String created_at, String updated_at) {
         this.id = id;
-        this.title = title;
+        this.name = name;
         this.company_name = company_name;
+        this.start_date = start_date;
+        this.end_date = end_date;
+        this.apply_url = apply_url;
         this.description = description;
-        this.career_level = career_level;
-        this.expiry_date = expiry_date;
-        this.is_active = is_active;
-        this.slug = slug;
         this.created_at = created_at;
         this.updated_at = updated_at;
     }
@@ -30,32 +28,28 @@ public class JobsModel {
         return id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
     public String getCompany_name() {
         return company_name;
     }
 
+    public String getStart_date() {
+        return start_date;
+    }
+
+    public String getEnd_date() {
+        return end_date;
+    }
+
+    public String getApply_url() {
+        return apply_url;
+    }
+
     public String getDescription() {
         return description;
-    }
-
-    public String getCareer_level() {
-        return career_level;
-    }
-
-    public String getExpiry_date() {
-        return expiry_date;
-    }
-
-    public String getIs_active() {
-        return is_active;
-    }
-
-    public String getSlug() {
-        return slug;
     }
 
     public String getCreated_at() {

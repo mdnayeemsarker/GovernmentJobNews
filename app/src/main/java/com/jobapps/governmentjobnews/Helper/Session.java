@@ -6,11 +6,6 @@ import android.content.SharedPreferences;
 
 import androidx.appcompat.app.AlertDialog;
 
-import com.jobapps.governmentjobnews.Activity.AuthActivity;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-
 public class Session {
 
     public static final String PREFER_NAME = "abmnGovJob";
@@ -47,31 +42,6 @@ public class Session {
         return pref.getBoolean(id, false);
     }
 
-    public void logoutUser(Activity activity) {
-
-        editor.clear();
-        editor.commit();
-
-        Intent i = new Intent(activity, AuthActivity.class);
-        i.putExtra(Constant.ABMN, "");
-        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        activity.startActivity(i);
-        activity.finish();
-    }
-
-    public void logoutUserConfirmation(final Activity activity) {
-
-        final AlertDialog.Builder alertDialog = new AlertDialog.Builder(activity);
-        alertDialog.setTitle("Log Out");
-        alertDialog.setMessage("Are you sure, do you want to logout.?");
-        alertDialog.setCancelable(false);
-        final AlertDialog alertDialog1 = alertDialog.create();
-
-        alertDialog.setPositiveButton("Yes", (dialog, which) -> logoutUser(activity));
-        alertDialog.setNegativeButton("No", (dialog, which) -> alertDialog1.dismiss());
-        alertDialog.show();
-    }
 
 //    public void IS_LOGGED_IN(Activity activity, String data) {
 //        if (!pref.getBoolean(Constant.IS_LOGIN, false)) {

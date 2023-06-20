@@ -23,19 +23,10 @@ public class Constant {
 
     public static final String FORGET_URL = "https://governmentjobnews.com.bd/password/reset";
     public static final String API_PATH = BASE_URL_SD_S + "api/";
-    public static final String AUTH_LOGIN_URL = API_PATH + "auth/login";
-    public static final String AUTH_REGISTER_URL = API_PATH + "auth/register";
     public static final String JOB_LIST_URL = API_PATH + "jobs/list";
-    public static final String BLOG_LIST_URL = API_PATH + "getBlogs";
-    public static final String NOTICE_LIST_URL = API_PATH + "getNotices";
     public static final String SHORT_BY_DATE_URL = API_PATH + "jobs/orderBy/date";
-    public static final String FAVORITE_JOB_LIST_URL = API_PATH + "jobs/favourite/list";
-    public static final String APPLIED_JOB_LIST_URL = API_PATH + "jobs/applied";
     public static final String JOB_DETAILS_URL = API_PATH + "jobs/details/";
     public static final String FCM_UPDATE_URL = API_PATH + "profile/update/fcm";
-    public static final String PHOTOS_PATH_URL = BASE_URL_SD_S + "jobs/";
-    public static final String BLOGS_PATH_URL = BASE_URL_SD_S + "blogs/";
-    public static final String NOTICES_PATH_URL = BASE_URL_SD_S + "notices/";
     public static final String FAVORITE_ADD_URL = BASE_URL_SD_S + "api/jobs/favourite/add/";
     public static final String FAVORITE_REMOVE_URL = BASE_URL_SD_S + "api/jobs/favourite/remove/";
 

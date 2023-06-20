@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rootJobsCardViewId"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -17,33 +17,15 @@
         android:orientation="vertical"
         android:padding="5dp">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/jobsTitleId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            tools:ignore="UseCompoundDrawables">
-
-            <TextView
-                android:id="@+id/jobsTitleId"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start|center"
-                android:layout_weight="1"
-                android:text="@string/job_title"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:id="@+id/jobsFavoriteId"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:focusable="true"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/ic_baseline_favorite_add" />
-
-        </LinearLayout>
+            android:layout_gravity="start|center"
+            android:text="@string/job_title"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <View
             android:layout_width="match_parent"

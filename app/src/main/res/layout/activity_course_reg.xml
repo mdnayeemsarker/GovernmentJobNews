@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.CourseRegActivity">
+
+    <include layout="@layout/lyt_toolbar" />
+
+    <TextView
+        android:id="@+id/instructionTV"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="HardcodedText" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/nameET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Your Name here."
+                android:importantForAutofill="no"
+                android:inputType="text"
+                tools:ignore="HardcodedText" />
+
+            <EditText
+                android:id="@+id/emailET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Your Gmail here."
+                android:importantForAutofill="no"
+                android:inputType="textEmailAddress"
+                tools:ignore="HardcodedText" />
+
+            <EditText
+                android:id="@+id/phoneET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Your Phone Number here."
+                android:importantForAutofill="no"
+                android:inputType="number|phone"
+                tools:ignore="HardcodedText" />
+
+            <EditText
+                android:id="@+id/trxET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Payment Transaction ID"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                tools:ignore="HardcodedText" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="5dp"
+                tools:ignore="UseCompoundDrawables">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Select Your Photo"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText" />
+
+                <ImageView
+                    android:id="@+id/photoIV"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/ic_upload" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="5dp"
+                tools:ignore="UseCompoundDrawables">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Payment Proof"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText" />
+
+                <ImageView
+                    android:id="@+id/proofIV"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/ic_upload" />
+
+            </LinearLayout>
+
+            <Button
+                android:backgroundTint="@color/primary_color"
+                android:id="@+id/submitBtn"
+                android:text="Submit"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="HardcodedText"
+                android:layout_marginBottom="10dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

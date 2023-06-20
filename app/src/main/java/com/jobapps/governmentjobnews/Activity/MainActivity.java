@@ -2,25 +2,27 @@ package com.jobapps.governmentjobnews.Activity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.android.volley.Request;
+import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.messaging.FirebaseMessaging;
 import com.jobapps.governmentjobnews.Helper.ApiConfig;
 import com.jobapps.governmentjobnews.Helper.Constant;
 import com.jobapps.governmentjobnews.Helper.Session;
@@ -29,7 +31,6 @@ import com.jobapps.governmentjobnews.R;
 import org.json.JSONObject;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -66,29 +67,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        TextView marqueeTxtView = findViewById(R.id.marqueeTxtViewId);
 //        marqueeTxtView.setSelected(true);
 
-        LinearLayout allJobLinearLayout = findViewById(R.id.allJobCardViewId);
         LinearLayout govJobLinearLayout = findViewById(R.id.govJobCardViewId);
         LinearLayout privateJobLinearLayout = findViewById(R.id.privateJobCardViewId);
         LinearLayout hotJobLinearLayout = findViewById(R.id.hotJobCardViewId);
-        LinearLayout examResultLinearLayout = findViewById(R.id.examResultCardViewId);
         LinearLayout lastLinearLayout = findViewById(R.id.lastLinearLayoutId);
-        LinearLayout studyLinearLayout = findViewById(R.id.studyLinearLayoutId);
-
-        CardView logoutCardView = findViewById(R.id.logoutCardViewId);
-        CardView favoriteCardView = findViewById(R.id.favoriteCardViewId);
         CardView ageCardView = findViewById(R.id.ageCardViewId);
 
         ageCardView.setOnClickListener(view -> ApiConfig.openAgeCalculatorDialog(activity));
 
-        allJobLinearLayout.setOnClickListener(view -> gotoDetails(""));
-        govJobLinearLayout.setOnClickListener(view -> gotoDetails("1"));
-        privateJobLinearLayout.setOnClickListener(view -> gotoDetails("2"));
-        hotJobLinearLayout.setOnClickListener(view -> gotoDetails("3"));
-
-        studyLinearLayout.setOnClickListener(view -> checkLogin("study", "study"));
-        examResultLinearLayout.setOnClickListener(view -> checkLogin("exam_result", "exam_result"));
-        favoriteCardView.setOnClickListener(view -> checkLogin("favorite_list", "favorite"));
-        lastLinearLayout.setOnClickListener(view -> checkLogin("short_list", "short_list"));
+        govJobLinearLayout.setOnClickListener(view -> startActivity(new Intent(activity, GovJobActivity.class)));
+        privateJobLinearLayout.setOnClickListener(view -> startActivity(new Intent(activity, JobsActivity.class).putExtra(Constant.ABMN, "1")));
+        hotJobLinearLayout.setOnClickListener(view -> startActivity(new Intent(activity, JobsActivity.class).putExtra(Constant.ABMN, "2")));
+        lastLinearLayout.setOnClickListener(view -> startActivity(new Intent(activity, JobShortListActivity.class)));
 
         ApiConfig.checkConnection(activity);
         if (!session.getBoolean(Constant.IS_ALERT)) {
@@ -98,41 +88,69 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             ApiConfig.forceRating(activity, session);
         }
         findViewById(R.id.videoClassCardViewId).setOnClickListener(v -> {
-            if (session.getBoolean(Constant.IS_LOGIN)){
+            if (session.getBoolean(Constant.IS_LOGIN)) {
                 ApiConfig.transferWebActivity(activity, "result", "https://hjhjkmnjkjlikjhjbn.blogspot.com");
-            }else {
+            } else {
                 checkLogin("video", "video");
             }
         });
         findViewById(R.id.liveVideoCardViewId).setOnClickListener(v -> {
-            if (session.getBoolean(Constant.IS_LOGIN)){
+            if (session.getBoolean(Constant.IS_LOGIN)) {
                 ApiConfig.transferWebActivity(activity, "result", "https://hjhjkmnjkjlikjhjbn.blogspot.com/p/live-class.html");
-            }else {
+            } else {
                 checkLogin("live", "live");
             }
         });
-        findViewById(R.id.resultLinearLayoutId).setOnClickListener(v -> ApiConfig.customResult(activity));
         findViewById(R.id.newsCardViewId).setOnClickListener(v -> ApiConfig.transferActivity(activity, "news", ""));
         findViewById(R.id.cGpaCalculatorCardViewId).setOnClickListener(v -> ApiConfig.transferActivity(activity, "cgpa", ""));
+        findViewById(R.id.courseCV).setOnClickListener(v -> startActivity(new Intent(activity, CourseActivity.class)));
 
         ApiConfig.autoNetCheck(activity);
 
         ApiConfig.BannerAds(activity);
 
-        if (session.getBoolean(Constant.IS_LOGIN)) {
-            logoutCardView.setVisibility(View.VISIBLE);
-            logoutCardView.setOnClickListener(view -> session.logoutUserConfirmation(activity));
-            getToken();
-        }
+        ApiConfig.RequestToVolley((result, response) -> {
+            try {
+                JSONObject jsonObject = new JSONObject(response);
+                JSONObject data = jsonObject.getJSONObject("data");
+                JSONObject setting = data.getJSONObject("setting");
+                String popup = setting.getString("popup");
 
-//        String channelName = getString(R.string.default_notification_channel_name);
-//        String channelId = getString(R.string.default_notification_channel_id);
-//        String channelId = "fcm_default_channel";
-//        String channelName = "JOBappBD";
-//        NotificationManager notificationManager = getSystemService(NotificationManager.class);
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//            notificationManager.createNotificationChannel(new NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_HIGH));
-//        }
+                if (popup.equals("on")) {
+                    String popup_img = setting.getString("popup_img");
+                    Log.d("company", "" + session.getBoolean("reg"));
+                    if (session.getBoolean("reg")){
+                        makePopUp(popup_img);
+                        Log.d("company", popup + ", " + popup_img);
+                    }
+                }
+
+            } catch (Exception e) {
+                Log.d("company", e.getMessage());
+            }
+        }, Request.Method.GET, activity, Constant.API_PATH + "setting", new HashMap<>(), false);
+
+
+    }
+
+    private void makePopUp(String img_url) {
+//        click to go to regi page
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        final View customLayout = activity.getLayoutInflater().inflate(R.layout.lyt_popup, null);
+        builder.setView(customLayout);
+        AlertDialog dialog = builder.create();
+        dialog.setCancelable(false);
+        dialog.show();
+
+        CardView bannerCloseCV = customLayout.findViewById(R.id.bannerCloseCV);
+        bannerCloseCV.setOnClickListener(v -> dialog.dismiss());
+
+        ImageView bannerIV = customLayout.findViewById(R.id.bannerIV);
+        Glide.with(activity).load(img_url).into(bannerIV);
+        bannerIV.setOnClickListener(v -> {
+            dialog.dismiss();
+            startActivity(new Intent(activity, CourseActivity.class));
+        });
     }
 
     private void checkLogin(String date, String send) {
@@ -144,33 +162,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-    private void getToken() {
-        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> {
-            String token = task.getResult();
-            Log.d("token", token);
-            ApiConfig.checkConnection(activity);
-            setToken(token);
-        });
-    }
-
-    private void setToken(String token) {
-
-        Map<String, String> params = new HashMap<>();
-        params.put(Constant.AUTHORIZATION, Constant.BEARER + session.getData(Constant.TOKEN));
-        params.put(Constant.FCM_TOKEN, token);
-        ApiConfig.RequestToVolley((result, response) -> {
-            if (result) {
-                try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    Log.d("Token", jsonObject.getString(Constant.MESSAGE));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    Log.d("eToken", e.getMessage());
-                }
-            }
-            Log.d("rToken", response);
-        }, activity, Constant.FCM_UPDATE_URL, params, false);
-    }
 
     private void gotoDetails(String send) {
         if (ApiConfig.isConnected(activity)) {

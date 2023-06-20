@@ -37,6 +37,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash_screen);
 
         Session session = new Session(activity);
+        session.setBoolean("reg", true);
 
         if (session.getData(Constant.IS_RATING).equals("1")){
             session.setData(Constant.IS_RATING, "2");
