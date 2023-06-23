@@ -109,6 +109,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     Log.d("company", "" + session.getBoolean("reg"));
                     if (session.getBoolean("reg")){
                         makePopUp(popup_img);
+                        session.setBoolean("reg", false);
                         Log.d("company", popup + ", " + popup_img);
                     }
                 }

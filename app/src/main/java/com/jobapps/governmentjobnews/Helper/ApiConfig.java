@@ -10,7 +10,6 @@ import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Handler;
 import android.util.Log;
 import android.util.Patterns;
@@ -31,7 +30,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.ParseError;
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.ServerError;
 import com.android.volley.TimeoutError;
@@ -100,7 +98,8 @@ public class ApiConfig extends Application {
                 dialog.dismiss();
                 session.setBoolean(Constant.IS_ALERT_NET, false);
                 checkConnection(activity);
-                loadInterstitial(activity);
+                if (isConnected(activity))
+                    loadInterstitial(activity);
             });
         }
     }
@@ -109,8 +108,8 @@ public class ApiConfig extends Application {
         Session session = new Session(activity);
         if (isConnected(activity)) {
             if (checkVpnConnection(activity)) {
-                Toast.makeText(activity, ""+session.getBoolean(Constant.IS_ALERT_VPN) , Toast.LENGTH_SHORT).show();
-                if (!session.getBoolean(Constant.IS_ALERT_VPN)){
+                Toast.makeText(activity, "" + session.getBoolean(Constant.IS_ALERT_VPN), Toast.LENGTH_SHORT).show();
+                if (!session.getBoolean(Constant.IS_ALERT_VPN)) {
                     ApiConfig.vpnAlert(activity);
                 }
             }
@@ -134,7 +133,6 @@ public class ApiConfig extends Application {
 
     public static boolean checkVpnConnection(Activity activity) {
         //this method doesn't work below API 21
-        boolean vpnInUse = false;
         ConnectivityManager connectivityManager = (ConnectivityManager) activity.getSystemService(CONNECTIVITY_SERVICE);
         Network activeNetwork = connectivityManager.getActiveNetwork();
         NetworkCapabilities caps = connectivityManager.getNetworkCapabilities(activeNetwork);
@@ -184,9 +182,6 @@ public class ApiConfig extends Application {
                 progressDisplay.hideProgress();
             if (ApiConfig.isConnected(activity))
                 callback.onSuccess(false, "");
-//            if (error instanceof NetworkError) {
-////                Toast.makeText(activity, "Cannot connect to Internet...Please check your connection!", Toast.LENGTH_SHORT).show();
-//            }
             String message = VolleyErrorMessage(error);
             if (!message.equals(""))
                 Toast.makeText(activity, message, Toast.LENGTH_SHORT).show();
@@ -257,9 +252,6 @@ public class ApiConfig extends Application {
     public static String VolleyErrorMessage(VolleyError error) {
         String message = "";
         try {
-//            if (error instanceof NetworkError) {
-//                message = "Cannot connect to Internet...Please check your connection!";
-//            }
             if (error instanceof ServerError) {
                 message = "The server could not be found. Please try again after some time!";
             } else if (error instanceof AuthFailureError) {
@@ -352,49 +344,6 @@ public class ApiConfig extends Application {
         } catch (android.content.ActivityNotFoundException e) {
             activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + activity.getPackageName() + "&hl=en")));
         }
-    }
-
-    public static void customResult(Activity activity) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-        final View customLayout = activity.getLayoutInflater().inflate(R.layout.lyt_custom_result, null);
-        builder.setView(customLayout);
-        AlertDialog dialog = builder.create();
-        dialog.setCancelable(false);
-        dialog.show();
-        customLayout.findViewById(R.id.pscBtnId).setOnClickListener(view -> {
-            dialog.dismiss();
-            if (isConnected(activity)) {
-                loadInterstitial(activity);
-                transferWebActivity(activity, "result", "http://180.211.137.51/");
-            }
-        });
-        customLayout.findViewById(R.id.jscBtnId).setOnClickListener(view -> {
-            dialog.dismiss();
-            if (isConnected(activity)) {
-                loadInterstitial(activity);
-                transferWebActivity(activity, "result", "http://www.educationboardresults.gov.bd");
-            }
-        });
-        customLayout.findViewById(R.id.nuBtnId).setOnClickListener(view -> {
-            dialog.dismiss();
-            if (isConnected(activity)) {
-                loadInterstitial(activity);
-                transferWebActivity(activity, "result", "http://results.nu.ac.bd");
-            }
-        });
-        customLayout.findViewById(R.id.universityOfDhakaId).setOnClickListener(view -> {
-            dialog.dismiss();
-            if (isConnected(activity)) {
-                loadInterstitial(activity);
-                transferWebActivity(activity, "result", "https://result.du.ac.bd");
-            }
-        });
-        customLayout.findViewById(R.id.closeImageViewId).setOnClickListener(view -> {
-            dialog.dismiss();
-            if (isConnected(activity)) {
-                loadInterstitial(activity);
-            }
-        });
     }
 
     public static void forceRating(Activity activity, Session session) {
@@ -612,99 +561,6 @@ public class ApiConfig extends Application {
         adView.loadAd(adRequest);
     }
 
-//    public static void loadRewardedAdsDownloads(Activity activity) {
-//        @SuppressLint("VisibleForTests")
-//        AdRequest adRequest = new AdRequest.Builder().build();
-//        RewardedAd.load(activity, activity.getString(R.string.SAVE_ADMOB_REWARDED_UNIT_ID), adRequest, new RewardedAdLoadCallback() {
-//            @Override
-//            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-//                // Handle the error.
-//                Log.d("Video Ads", loadAdError.getMessage());
-//            }
-//
-//            @Override
-//            public void onAdLoaded(@NonNull RewardedAd rewardedAd) {
-//                RewardedAd mRewardedAd;
-//                mRewardedAd = rewardedAd;
-//                Log.d("Video Ads", "Ad was loaded.");
-//                mRewardedAd.show(activity, rewardItem -> {
-//                });
-//                mRewardedAd.setFullScreenContentCallback(new FullScreenContentCallback() {
-//                    @Override
-//                    public void onAdFailedToShowFullScreenContent(@NonNull AdError adError) {
-//                        super.onAdFailedToShowFullScreenContent(adError);
-//                    }
-//
-//                    @Override
-//                    public void onAdShowedFullScreenContent() {
-//                        super.onAdShowedFullScreenContent();
-//                    }
-//
-//                    @Override
-//                    public void onAdDismissedFullScreenContent() {
-//                        super.onAdDismissedFullScreenContent();
-//                    }
-//
-//                    @Override
-//                    public void onAdImpression() {
-//                        super.onAdImpression();
-//                    }
-//
-//                    @Override
-//                    public void onAdClicked() {
-//                        super.onAdClicked();
-//                    }
-//                });
-//            }
-//        });
-//    }
-//
-//    public static void loadRewardedVideoAds(Activity activity) {
-//        @SuppressLint("VisibleForTests") AdRequest adRequest = new AdRequest.Builder().build();
-//        RewardedAd.load(activity, activity.getString(R.string.VIDEO_ADMOB_REWARDED_UNIT_ID), adRequest, new RewardedAdLoadCallback() {
-//            @Override
-//            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-//                // Handle the error.
-//                Log.d("Video Ads", loadAdError.getMessage());
-//            }
-//
-//            @Override
-//            public void onAdLoaded(@NonNull RewardedAd rewardedAd) {
-//                RewardedAd mRewardedAd;
-//                mRewardedAd = rewardedAd;
-//                Log.d("Video Ads", "Ad was loaded.");
-//                mRewardedAd.show(activity, rewardItem -> {
-//                });
-//                mRewardedAd.setFullScreenContentCallback(new FullScreenContentCallback() {
-//                    @Override
-//                    public void onAdFailedToShowFullScreenContent(@NonNull AdError adError) {
-//                        super.onAdFailedToShowFullScreenContent(adError);
-//                    }
-//
-//                    @Override
-//                    public void onAdShowedFullScreenContent() {
-//                        super.onAdShowedFullScreenContent();
-//                    }
-//
-//                    @Override
-//                    public void onAdDismissedFullScreenContent() {
-//                        super.onAdDismissedFullScreenContent();
-//                    }
-//
-//                    @Override
-//                    public void onAdImpression() {
-//                        super.onAdImpression();
-//                    }
-//
-//                    @Override
-//                    public void onAdClicked() {
-//                        super.onAdClicked();
-//                    }
-//                });
-//            }
-//        });
-//    }
-
     public static void loadInterstitial(Activity activity) {
 
         @SuppressLint("VisibleForTests")
@@ -758,30 +614,12 @@ public class ApiConfig extends Application {
             e.printStackTrace();
         }
     }
-
-    public static boolean checkURL(CharSequence input) {
-        Pattern URL_PATTERN = Patterns.WEB_URL;
-        boolean isURL = URL_PATTERN.matcher(input).matches();
-        if (!isURL) {
-            String urlString = input + "";
-            if (URLUtil.isNetworkUrl(urlString)) {
-                try {
-                    new URL(urlString);
-                    isURL = true;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        return isURL;
-    }
-
     public static boolean isEmail(String email) {
         return Pattern.compile("^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]|[\\w-]{2,}))@"
-                + "((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
-                + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\."
-                + "([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
-                + "[0-9]{1,2}|25[0-5]|2[0-4][0-9]))|"
+                + "((([0-1]?\\d{1,2}|25[0-5]|2[0-4]\\d)\\.([0-1]?"
+                + "\\d{1,2}|25[0-5]|2[0-4]\\d)\\."
+                + "([0-1]?\\d{1,2}|25[0-5]|2[0-4]\\d)\\.([0-1]?"
+                + "\\d{1,2}|25[0-5]|2[0-4]\\d))|"
                 + "([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$").matcher(email).matches();
     }
 

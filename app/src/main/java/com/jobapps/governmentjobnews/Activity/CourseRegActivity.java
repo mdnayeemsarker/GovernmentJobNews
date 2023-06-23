@@ -24,10 +24,8 @@ import com.canhub.cropper.CropImage;
 import com.jobapps.governmentjobnews.Helper.ApiConfig;
 import com.jobapps.governmentjobnews.Helper.Constant;
 import com.jobapps.governmentjobnews.Helper.FilePath;
-import com.jobapps.governmentjobnews.Helper.Session;
 import com.jobapps.governmentjobnews.R;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -124,7 +122,6 @@ public class CourseRegActivity extends AppCompatActivity {
 
     private void checkSubmit() {
 
-        Session session = new Session(activity);
         String name = nameET.getText().toString();
         String phone = phoneET.getText().toString();
         String email = emailET.getText().toString();
@@ -155,10 +152,10 @@ public class CourseRegActivity extends AppCompatActivity {
                     boolean status = jsonObject.getBoolean("status");
                     String messageOnline = jsonObject.getString("message");
 
+                    Toast.makeText(this, messageOnline, Toast.LENGTH_SHORT).show();
                     if (status) {
-                        Toast.makeText(this, messageOnline, Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(activity, MainActivity.class));
-                        session.setBoolean("reg", false);
+                        ApiConfig.loadInterstitial(activity);
                     }
 
                 } catch (Exception e) {

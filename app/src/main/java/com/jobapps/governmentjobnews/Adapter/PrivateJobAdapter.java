@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.jobapps.governmentjobnews.Activity.JobDetailsActivity;
 import com.jobapps.governmentjobnews.Activity.PrivateDetailsActivity;
+import com.jobapps.governmentjobnews.Helper.ApiConfig;
 import com.jobapps.governmentjobnews.Helper.Session;
 import com.jobapps.governmentjobnews.Model.PrivateJobModel;
 import com.jobapps.governmentjobnews.R;
@@ -86,6 +87,7 @@ public class PrivateJobAdapter extends RecyclerView.Adapter<PrivateJobAdapter.Vi
             session.setData("apply_url", model.getApply_url());
             session.setData("created_at", model.getCreated_at());
             session.setData("updated_at", model.getUpdated_at());
+            ApiConfig.loadInterstitial(activity);
             activity.startActivity(new Intent(activity, PrivateDetailsActivity.class));
         });
     }

@@ -1,5 +1,6 @@
 package com.jobapps.governmentjobnews.Activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,6 +9,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.android.volley.Request;
 import com.jobapps.governmentjobnews.Adapter.JobsAdapter;
@@ -97,5 +101,26 @@ public class GovJobActivity extends AppCompatActivity {
             }
         }, Request.Method.GET, activity, Constant.API_PATH + "gov-jobs", new HashMap<>(), true);
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(@NonNull Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.jobs_menu, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.reload_jobsId) {
+            if (ApiConfig.isConnected(activity)) {
+                getData();
+            } else {
+                ApiConfig.isConnectedAlert(activity);
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -79,6 +79,7 @@ public class JobsAdapter extends RecyclerView.Adapter<JobsAdapter.ViewHolder> {
             session.setData("endDate", model.getEnd_date());
             session.setData("description", model.getDescription());
             session.setData("applyUrl", model.getApply_url());
+            ApiConfig.loadInterstitial(activity);
             activity.startActivity(new Intent(activity, JobDetailsActivity.class));
         });
     }
